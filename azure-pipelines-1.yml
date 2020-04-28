@@ -14,7 +14,6 @@ stages:
 - stage: A
   jobs:
   - job: A1
-steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -28,7 +27,6 @@ steps:
 - stage: B
   jobs:
   - job: B1
-steps:
 - task: Ant@1
   inputs:
     buildFile: 'build.xml'
@@ -36,4 +34,3 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-
