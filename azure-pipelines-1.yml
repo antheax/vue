@@ -10,9 +10,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-
-- job:A
+stages:
+- stage: A
+  jobs:
+  - job: A1
 steps:
 - task: NodeTool@0
   inputs:
@@ -24,7 +25,9 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- job:B
+- stage: B
+  jobs:
+  - job: B1
 steps:
 - task: Ant@1
   inputs:
@@ -33,3 +36,4 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
+
