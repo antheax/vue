@@ -10,27 +10,21 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-stages:
-- stage: A
-  jobs:
-  - job: A1
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+jobs:
+- job: A
+  steps:
+  - bash: echo "A"
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-
-- stage: B
-  jobs:
-  - job: B1
-- task: Ant@1
-  inputs:
-    buildFile: 'build.xml'
-    options: 
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
+- job: B
+  steps:
+  - bash: echo "B"
+  - task: Ant@1
+    inputs:
+      buildFile: 'build.xml'
+      options: 
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
