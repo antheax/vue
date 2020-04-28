@@ -20,3 +20,8 @@ stages:
   jobs:
   - job: B1
   - job: B2
+
+- stage: C
+  jobs:
+  - job: C1
+  - job: C2
