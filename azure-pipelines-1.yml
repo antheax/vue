@@ -10,7 +10,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobA:
+job:A
 steps:
 - task: NodeTool@0
   inputs:
@@ -22,7 +22,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-jobB:
+job:B
 steps:
 - task: Ant@1
   inputs:
