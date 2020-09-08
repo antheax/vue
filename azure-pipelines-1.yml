@@ -25,3 +25,4 @@ stages:
   jobs:
   - job: C1
   - job: C2
+  - job: C3
