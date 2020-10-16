@@ -14,7 +14,9 @@ stages:
 - stage: A
   jobs:
   - job: A1
-  condition: 1
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
   - job: A2
 
 - stage: B
